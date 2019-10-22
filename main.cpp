@@ -29,6 +29,15 @@ int main() {
     }
 
     //1) find the node that has the minimum value
+    current = head->getNext();
+    int minValue = current->getValue();
+    while(current!=nullptr){
+        if(minValue > current->getValue()){
+            minValue = current->getValue();
+        }
+        current=current->getNext();
+    }
+    cout << "minValue: " << minValue;
 
     //2) remove the 4th node from the list
 
