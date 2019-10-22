@@ -37,9 +37,32 @@ int main() {
         }
         current=current->getNext();
     }
-    cout << "minValue: " << minValue;
+    cout << "minValue: " << minValue << endl;
 
     //2) remove the 4th node from the list
+    Node* prev=head;
+    current = head->getNext();
+    int counter = 1;
+    while(current!= nullptr){
+        counter++;
+        prev = current;
+        current = current->getNext();
+        if(counter == 4){
+            prev->setNext(current->getNext());
+            current->setNext(nullptr);
+            delete current;
+            break;
+        }
+    }
+
+    //Print part 2
+    current=head->getNext();
+    while(current!=nullptr)
+    {
+        current->printNode();
+        current=current->getNext();
+    }
+
 
     //3) remove the last node
 
