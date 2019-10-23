@@ -38,6 +38,7 @@ int main() {
         current=current->getNext();
     }
     cout << "minValue: " << minValue << endl;
+    cout<<"Remove 4th node:"<<endl;
 
     //2) remove the 4th node from the list
     Node* prev=head;
@@ -63,11 +64,53 @@ int main() {
         current=current->getNext();
     }
 
-
+    cout<<"Remove last node:"<<endl;
     //3) remove the last node
+    Node* prev2=head;
+    current = head->getNext();
+    int counter2 = 1;
+    while(current!= nullptr){
+        counter2++;
+        prev2 = current;
+        current = current->getNext();
+        if(current == nullptr){
+            prev2->setNext(nullptr);
+            delete current;
 
+        }
+    }
+
+    //Print part 3
+    current=head->getNext();
+    while(current!=nullptr)
+    {
+        current->printNode();
+        current=current->getNext();
+    }
+
+    cout<<"Remove first node:"<<endl;
     //4) remove the first node
+    Node* prev3=head;
+    current = head->getNext();
+   if(current!= nullptr){
+        prev3 = current;
+        current = current->getNext();
+        if(current!=nullptr){
+            head->setNext(current);
+            prev3->setNext(nullptr);
+            delete prev3;
+        }
+    }
+
+    //Print part 4
+    current=head->getNext();
+    while(current!=nullptr)
+    {
+        current->printNode();
+        current=current->getNext();
+    }
 
     //6) delete all nodes
+
     return 0;
 }
